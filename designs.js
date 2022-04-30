@@ -1,10 +1,10 @@
-
+/**
+ * @desc Get user inputs for creating the grid and 
+ * pass it on to the makeGrid functions.
+ * Deletes the existing grid first before creating a new one.
+ */
 function getInputs(){
-    /**
-     * @desc Get user inputs for creating the grid and 
-     * pass it on to the makeGrid functions.
-     * Deletes the existing grid first before creating a new one.
-     */
+    
     const bttn = document.getElementsByTagName('button')[0];
 
     bttn.addEventListener('click', function(event){
@@ -21,11 +21,12 @@ function getInputs(){
 };
 
 
+/**
+ * @desc Check if a table body (tbody) already exists and remove it
+ * Ensures every new table is built from scratch
+ */
 function deleteGrid(){
-    /**
-     * @desc Check if a table body (tbody) already exists and remove it
-     * Ensures every new table is built from scratch
-     */
+    
     if (typeof(document.getElementsByTagName('tbody')[0]) != 'undefined'){
         let grid = document.getElementsByTagName('tbody')[0];
         grid.remove();
@@ -33,17 +34,19 @@ function deleteGrid(){
 }
 
 
+/**
+ * @desc Create a grid according to the user's inputs
+ * @param int $row - number representing the number of vertical squares in the grid
+ * @param int $column - number representing the number of horizontal squares in the grid
+ */
 function makeGrid(row, column) {
-    /**
-     * @desc Create a grid according to the user's inputs
-     * @param int $row - number representing the number of vertical squares in the grid
-     * @param int $column - number representing the number of horizontal squares in the grid
-     */
     let canvas = document.getElementById('pixelCanvas');
+    
     for (i = 1; i <= row; i++){
         let newRow = canvas.insertRow()
         let rowCell = newRow.insertCell()
     }
+
     for (i = 0; i < canvas.rows.length; i++){
         let row = canvas.rows[i]
         for (j = 1; j < column; j++){
@@ -53,13 +56,14 @@ function makeGrid(row, column) {
 }
 
 
+/**
+ * @description Listens when a user selects a color and records the selected color
+ * Sets the background color for any grid clicked by a user to the selected color.
+ */
 function addColor(){
-    /**
-     * @description Listens when a user selects a color and records the selected color
-     * Sets the background color for any grid clicked by a user to the selected color.
-     */
     const picker = document.getElementById('colorPicker');
     var color = '';
+    
     picker.addEventListener('input', function(){
         color = picker.value;
     });
