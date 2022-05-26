@@ -57,13 +57,13 @@ function makeGrid(row, column) {
 
 
 /**
- * @description Listens when a user selects a color and records the selected color
+ * @desc Listens when a user selects a color and records the selected color
  * Sets the background color for any grid clicked by a user to the selected color.
  */
 function addColor(){
     const picker = document.getElementById('colorPicker');
     var color = '';
-    
+
     picker.addEventListener('input', function(){
         color = picker.value;
     });
